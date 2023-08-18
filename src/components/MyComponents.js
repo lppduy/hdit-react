@@ -1,29 +1,23 @@
 import React from 'react';
+import DisplayInfor from './DisplayInfor';
+import UserInfor from './UserInfo';
 
 class MyComponent extends React.Component {
   state = {
-    name: 'EREN YEEGER',
-    age: 26,
-    address: 'sg',
+    listUsers: [
+      { id: 1, name: ' Duy', age: '26' },
+      { id: 2, name: 'Linh', age: '24' },
+      { id: 3, name: 'Janes', age: '12' },
+    ],
   };
 
-  handleClick(e) {
-    console.log('click rui!!');
-    // console.log(e);
-    // console.log('my name is', this, state.name); // error
-  }
-
-  handleOnMouseOver(e) {
-    console.log(e.pageX);
-  }
-
   render() {
+    // DRY = DONT REPEAT YOURSELF
     return (
       <div>
-        My name is {this.state.name} in {this.state.address} and i'm{' '}
-        {this.state.age}
-        <button onMouseOver={this.handleOnMouseOver}>Hover me ~</button>
-        <button onClick={this.handleClick}>Click me ~</button>
+        <UserInfor />
+        <br /> <br />
+        <DisplayInfor listUsers={this.state.listUsers} />
       </div>
     );
   }
