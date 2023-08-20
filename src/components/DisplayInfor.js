@@ -59,6 +59,9 @@ const DisplayInfor = props => {
 
   return (
     <div className="display-infor-container">
+      <div>
+        <span>Show list users</span>
+      </div>
       {true && (
         <div>
           {listUsers.map(user => {
