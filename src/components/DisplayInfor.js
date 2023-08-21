@@ -1,4 +1,6 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import './DisplayInfor.scss';
 // import logo from './../logo.svg';
 
@@ -56,16 +58,33 @@ import './DisplayInfor.scss';
 
 const DisplayInfor = props => {
   const { listUsers } = props;
+  const [isShowHideListUser, setShowHideListUser] = useState(true);
+  const handleShowHideListUser = () => {
+    // alert('click me');
+    setShowHideListUser(!isShowHideListUser);
+  };
+
+  console.log('>>> call me render');
+
+  useEffect(() => {
+    if (listUsers.length === 0) {
+      console.log('>>> call me useEffect');
+    }
+    // bao gom did mount + did update
+  }, [listUsers]);
 
   return (
     <div className="display-infor-container">
       <div>
-        <span>Show list users</span>
+        <span onClick={() => handleShowHideListUser()}>
+          {setShowHideListUser ? 'Hide list users' : 'Show list users'}
+        </span>
       </div>
-      {true && (
-        <div>
+
+      {isShowHideListUser && (
+        <>
           {listUsers.map(user => {
-            console.log('>>> check map user', user);
+            // console.log('>>> check map user', user);
             // dung index coi chung dinh bugs
 
             return (
@@ -81,7 +100,7 @@ const DisplayInfor = props => {
               </div>
             );
           })}
-        </div>
+        </>
       )}
     </div>
   );
