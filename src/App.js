@@ -1,11 +1,11 @@
-// import logo from './logo.svg';
-// import './App.scss';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { increaseCounter, decreaseCounter } from './redux/action/counterAction';
-import MyComponent from './components/MyComponents';
-import React from 'react';
+import './App.scss';
 
 const App = () => {
-  return <div className="App">Duy Kingdom</div>;
+  return (
+    <div className="App">
+      <h1>Duy Kingdom</h1>
+      <button class="btn btn-primary">Click</button>
+    </div>
+  );
 };
 export default App;
